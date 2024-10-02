@@ -58,6 +58,21 @@ months.splice(5, 2, 'July', 'Agost', 'Sept'); //Param 1 posicion Param 2: 2 en a
 console.log(months); 
 
 //partir la cadena en 2
-let eliminados =months.splice(3);
+let eliminados = months.splice(3);
 console.log(eliminados);
 console.log(months);
+
+//ordenación del array
+//reverse te lo muestra alreves alfabetameticamente
+console.log(months.reverse())
+//ordena hacia delante alfabeticamente
+console.log(months.sort())
+
+//matrices
+let matriz = [];
+
+let num = prompt("Dime el tamaño de columna");
+
+for(let i=0; i<num; i++){
+    matriz[i] = new Array(num);
+}
