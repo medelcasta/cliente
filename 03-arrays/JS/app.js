@@ -66,13 +66,37 @@ console.log(months);
 //reverse te lo muestra alreves alfabetameticamente
 console.log(months.reverse())
 //ordena hacia delante alfabeticamente
-console.log(months.sort())
+console.log(months.sort());
 
-//matrices
-let matriz = [];
+//split: divide la cadena por el caracter que le pase
 
-let num = prompt("Dime el tamaño de columna");
+//partes de una palabra, frases, vectores,.. delimitados por un separador
 
-for(let i=0; i<num; i++){
-    matriz[i] = new Array(num);
-}
+let cadena = "Javascript es un lenguaje de programacion";
+let vector = '12.34.45.6.7.9';
+
+let palabras = cadena.split(' ');
+let numeros = vector.split('.');
+
+console.log(palabras);
+console.log(numeros);
+
+//indexOf: busqueda de una posicion
+
+let posicion = months.indexOf('Jan');
+console.log(posicion);
+
+months.push('Apr');
+months.push('Jun');
+//slice: nos genera una revanada del numero de elementos que le digamos apartir
+// del numero que pongas sin perder la original
+
+console.log(months.slice(2));
+console.log(months);
+
+//unshift: añade al principio desplaza los que existen
+pets.unshift('perito');
+console.log(pets);
+
+//replace = dentro de una cadena me remplaza una trozo por otro
+console.log(cadena.replace('Java', 'Aurora'));

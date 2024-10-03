@@ -59,3 +59,9 @@ function recogerNum(msj){
 }
 
 Calculadora();
+
+function sumarVentana(){
+    let a = recogerNum("Dime número A: ");
+    let b = recogerNum("Dime número B: ");
+    Suma(a,b);
+}
