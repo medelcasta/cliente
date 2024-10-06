@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO PROG BASICA 7</title>
+    <script>
+        let numerosIntroducidos = "";
+
+        function solicitarNumeros(){
+            let entrada = prompt('Introduce los numeros separados por comas');
+            numerosIntroducidos = entrada;
+            let numeros = entrada.split(',').map(num => parseInt(num.trim()));
+           
+            //en la variable numero la dividimos por comas lo obtenido se mete en un mapa
+            // y se castea a numero quitando espacios delante y detras para poder trabajar 
+            // con esos numeros
+            return numeros;
+        }
+        function resultadosuma(numeros){
+            //reduce : coge cada elemento de la lista y los va sumando entre ellos
+            // (funciona con acumulador (temporal))
+            return numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+
+        }
+        function resultadomedia(numeros){
+            let sum = resultadosuma(numeros);
+            return sum / numeros.length;
+
+        }
+        function resultadomayor(numeros){
+            //spread operator ... : copia temporalmente los elementos de un array para 
+            //usarlos para otra cosa sin modificarte el original
+            return Math.max(...numeros);
+        }
+        function resultadomenor(numeros){
+            return Math.min(...numeros);
+        }
+
+        function mostrar(numeros){
+            let suma = resultadosuma(numeros);
+            let media = resultadomedia(numeros);
+            let mayor = resultadomayor(numeros);
+            let menor = resultadomenor(numeros);
+
+            console.log("La suma es: " + suma);
+            console.log("La media es: " + media);
+            console.log("El mayor es: " + mayor);
+            console.log("El menor es: " + menor);
+            //dentro del html por id un elemento que se llame res
+            document.getElementById("res").innerHTML = `
+            <p>La suma es: ${suma}</p>
+            <p>La media es: ${media}</p>
+            <p>El mayor es: ${mayor}</p>
+            <p>El menor es: ${menor}</p>
+            `;
+
+           document.getElementById("caja").value = numerosIntroducidos;
+
+        }
+        function iniciar(){
+            let numeros = solicitarNumeros();
+            let ver = mostrar(numeros);
+        }
+    </script>
+</head>
+<body onload="iniciar()">
+    <p>Introduce los números separados por comas </p>
+    <input type="text" id="caja" readonly />
+    <div id="res"></div>
+
+</body>
+</html>

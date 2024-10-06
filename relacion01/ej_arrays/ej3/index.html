@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <script>
+        function pedirNumero() {
+            let numero;
+            do {
+                numero = parseInt(prompt("Introduce un número entero positivo mayor a 2:"));
+            } while (isNaN(numero) || numero <= 2);
+            return numero;
+        }
+        
+        function crearMatriz(numero) {
+            let matriz = [];
+            let contador = 1;
+            for (let i = 0; i < numero; i++) {
+                let fila = [];
+                for (let j = 0; j < numero; j++) {
+                    fila.push(contador * numero); // Sin usar padStart ni toString
+                    contador++;
+                }
+                matriz.push(fila);
+            }
+            return matriz;
+        }
+        
+        function mostrarMatriz(matriz) {
+            matriz.forEach(fila => console.log(fila.join(' ')));
+        }
+        
+        let numero = pedirNumero();
+        let matriz = crearMatriz(numero);
+        mostrarMatriz(matriz);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

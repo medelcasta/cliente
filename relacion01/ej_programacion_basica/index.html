@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function solicitarDatos(){
+            let num;
+
+            do{
+                num = parseInt(prompt('Introduce un número entero positivo mayor que 0'));
+            }while(num < 0);
+
+            return num;
+        }
+
+        function divisoresYCuadrados(num){
+            let cuadrados = 0;
+            let divisores = "Divisores de " + num + ": ";
+
+            for(let i = 1; i <= num; i++){
+                if(num % i == 0){
+                    divisores += i + " ";
+                    cuadrados += i * i;
+                }
+            }
+            alert(divisores);
+            return cuadrados;
+        }
+
+        function calculoCuadrado(calcular){
+            alert('La suma del cuadrado de los divisores es: '+ calcular);
+            let comprobar =  Math.sqrt(calcular);
+
+            if(comprobar == Math.floor(comprobar)){
+                alert('Es un cuadrado');
+            } else{
+                alert('No es un cuadrado');
+            }
+
+        }
+
+        function iniciarVariable(){
+            let numero = solicitarDatos();
+            let calcular = divisoresYCuadrados(numero);
+            calculoCuadrado(calcular);
+        }
+    
+    </script>
+</head>
+<body onload="iniciarVariable()">
+<!--     
+    <h1>EJERCICIO 1</h1>
+    EJ1|A
+    <script defer type="text/javascript">
+        alert("Forma interna sin funcion");
+    </script>
+
+    EJ1|B
+
+    <button onclick="alert('Evento en un boton sin función')">Púlsame b)</button>
+    <script>
+        
+    </script>
+
+    EJ1|C
+
+    <button onclick="myFunction()">Púlsame c)</button>
+    <script>
+        function myFunction(){
+            alert("Evento en un botón con función")
+        }
+    </script>
+
+    EJ1|D
+
+    <button id="boton3">Púlsame d)</button>
+    <script defer type="text/javascript" src="./JS/app.js"></script>
+    <br>
+
+    EJ2
+
+    <h1>EJERCICIO 2</h1>
+    <button onclick="alert('hola')">Púlsame</button>
+    <img src="foto.png" width="100px" onmouseover="alert('adios')"/>
+
+    EJ3
+
+    <h1>EJERCICIO 3</h1>
+    <script>
+        function alerta(){
+            alert('Normal');
+        }
+        function editar(){
+            document.write('esto esta cambiado');
+        }
+    </script>
+    <button onclick="alerta()">Púlsame</button>
+    <button onclick="editar()">Púlsame</button>
+     -->
+
+    <!--EJ6-->
+    
+    <!-- function cuadrados(){
+            let cuadrado = divisoresYCuadrados();
+        } -->
+
+</body>
+</html>
