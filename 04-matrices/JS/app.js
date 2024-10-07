@@ -60,3 +60,22 @@ function PintarMatriz(autos){
 }
 
 PintarMatriz(autos);
+
+//EJERCICIO MATRICES
+/*
+    Solicitamos el numero de filas y el numero de columnas, solicito un valor numerico por cada fila
+
+*/
+
+let filas = prompt('Introduce el numero de filas');
+let columnas = prompt('Introduce el numero de columnas');
+let mimatriz;
+for(let i = 0; i<= filas; i++){
+    let numero = prompt('Introduce un numero: ');
+    for(let j = 0; j<= columnas; j++){
+        if(numero < 0){
+            numero = 0 + numero;
+        }
+        mimatriz[i][j] *= numero;
+    }
+}
