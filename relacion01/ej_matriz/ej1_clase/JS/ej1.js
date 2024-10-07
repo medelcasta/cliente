@@ -43,7 +43,7 @@ function PintarMatriz(matriz){
     for (let i = 0; i<matriz.length; i++){
         for (let j = 0; j<matriz[i].length; j++){
             
-            if(matriz[i][j] > 0 && matriz[i][j] <10){ //añadir 0 si el numero es de 1 cifra
+            if(matriz[i][j] > 0 && matriz[i][j] < 10){ //añadir 0 si el numero es de 1 cifra
                 resultado+= "0" + matriz[i][j] + " ";
             }
             else{
