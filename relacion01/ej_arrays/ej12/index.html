@@ -6,6 +6,34 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        let colores = ["red", "yellow", "green", "white", "blue", "brown", "pink", "black"];
+
+
+        function obtenerColores(colores, num) {
+            let resultado = [];
+            for (let i = 0; i < num; i++) {
+                let colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+                resultado.push(colorAleatorio);
+            }
+            return resultado;
+        }
+
+        let coloresNuevos = obtenerColores(colores, 5);
+        console.log(coloresNuevos);
+        let numero = 1;
+        do{
+            let numero = parseInt(prompt("Introduce un numero entre 1 y 5"));
+        }while(isNaN(numero) || numero < 1 || numero >5);
+
+        document.write('<table border="1" style="border-collapse: collapse;"><tr>');
+
+            
+        for (let i = 0; i < coloresNuevos.length; i++) {
+            document.write(`<td style="width: 100px; height: 100px; background-color: ${coloresNuevos[i]};"></td>`);
+        }
+        document.write('</tr></table>');
+
+    </script>
 </body>
 </html>

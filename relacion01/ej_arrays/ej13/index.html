@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let colores = ["red", "yellow", "green", "white", "blue", "brown", "pink", "black"];
+        let introduce = "casa blue green orden brown bombilla bici pink";
+        
+        let palabras = introduce.split(" ");
+        let resultado = [];
+
+        let coloresEncontrados = palabras.filter(palabra => colores.includes(palabra));
+        let otrasPalabras = palabras.filter(palabra => !colores.includes(palabra));
+
+        let arrayResultante = coloresEncontrados.concat(otrasPalabras);
+
+        console.log("Array original del usuario:", palabras);
+        console.log("Array resultante:", arrayResultante);
+    </script>
+</body>
+</html>
