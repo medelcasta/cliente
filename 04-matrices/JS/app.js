@@ -1,16 +1,19 @@
 //matrices
 let matriz = [];
 
-let num = prompt("Dime el tamaño de columna");
+let num = 3;
+//prompt("Dime el tamaño de columna");
 
 for(let i=0; i<num; i++){
     matriz[i] = new Array(num);
 }
 
 function recogerNum(msj){
-    let res = prompt(msj);
+    let res = 3;
+    //prompt(msj);
     while(isNaN(res)){
-        res= prompt("ERROR. Introduce un numero: ");
+        res= 3;
+        // prompt("ERROR. Introduce un numero: ");
     }
     return (res);
 }
@@ -67,11 +70,14 @@ PintarMatriz(autos);
 
 */
 
-let filas = prompt('Introduce el numero de filas');
-let columnas = prompt('Introduce el numero de columnas');
+let filas = 3;
+// prompt('Introduce el numero de filas');
+let columnas = 2;
+// prompt('Introduce el numero de columnas');
 let mimatriz;
 for(let i = 0; i<= filas; i++){
-    let numero = prompt('Introduce un numero: ');
+    let numero =  4;
+   // prompt('Introduce un numero: ');
     for(let j = 0; j<= columnas; j++){
         if(numero < 0){
             numero = 0 + numero;

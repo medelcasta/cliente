@@ -12,7 +12,7 @@ function unicos(primero, segundo){
     quitarRepes(segundo, primero);
     return resultado;
 }
-let a = [1,2,3,3];
-let b = [3,2,1,4,5];
+let a = [1,2,3,3,8];
+let b = [3,2,1,4,5,7,8];
 let resultado = unicos(a, b);
 console.log(resultado);

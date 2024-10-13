@@ -5,7 +5,7 @@ function likes(nombres) {
         return "no one likes this";
     }
     if (count === 1) {
-        return nombres[0] + " likes this"; 
+        return nombres[0] + " likes this";      
     }
     if (count === 2) {
         return nombres[0] + " and " + nombres[1] + " like this"; 

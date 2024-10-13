@@ -19,7 +19,9 @@ function crearMatriz(numero) {
 }
 
 function mostrarMatriz(matriz) {
-    matriz.forEach(fila => console.log(fila.join(' ')));
+    for (let i = 0; i < matriz.length; i++) {
+        console.log(matriz[i]);
+    }
 }
 
 let numero = pedirNumero();
