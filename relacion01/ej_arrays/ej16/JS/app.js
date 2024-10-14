@@ -13,11 +13,9 @@ function numeroComensales(){
     let num;
     do{
         num = parseInt(prompt("Introduce el numero de comensales: "));
-    }while(num > 4 || num < 0);
+    }while(isNaN(num));
     return num;
 }
-
-
 
 function añadir_comensales(num, restaurante){
     let acomodado = false;
@@ -25,7 +23,9 @@ function añadir_comensales(num, restaurante){
     
     for(let i = 0; i < restaurante.length; i++){
         if(restaurante[i] + num <= 4){
-            restaurante[i] += num;
+            if(num > 0){
+                restaurante[i] += num;
+            }
             console.log("Por favor, siéntese en la mesa " + (i + 1));
             acomodado = true;
             break;
@@ -46,16 +46,12 @@ function añadir_comensales(num, restaurante){
     }
 }
 
-    
-
-
-let restaurante = creaRestaurante();
+let vips = creaRestaurante();
 let num;
 do{
-    num = numeroComensales();
-    if(num > 0){
+    num = Number(numeroComensales());
+    if(num > 0 || num < 4){
         añadir_comensales(num, restaurante);
     }
     console.log(restaurante);
-}while(num > 0);
-
+}while(num > 0); 
