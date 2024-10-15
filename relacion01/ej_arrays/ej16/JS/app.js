@@ -46,7 +46,7 @@ function añadir_comensales(num, restaurante){
     }
 }
 
-let vips = creaRestaurante();
+let restaurante = creaRestaurante();
 let num;
 do{
     num = Number(numeroComensales());

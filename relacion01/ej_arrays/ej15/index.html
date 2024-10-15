@@ -33,7 +33,13 @@
             numeros.splice(pos_final, 0, valorARotar);
             if(pos_final != numeros.length){
                 let valorAMover = numeros.shift();
-                //aqui falta captura
+                numeros.unshift(numeros.pop());
+                let valorTemporal;
+                for(let i = 1; i<= pos_inicial; i++){
+                    valorTemporal = numeros[i];
+                    numeros[i] = valorAMover;
+                    valorAMover = valorTemporal;
+                }
             }
         }
 
