@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción con DIVs</title>
+    <style>
+        .cuadro {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+        #cuadro1 {
+            background-color: red;
+        }
+        #cuadro2 {
+            background-color: green;
+        }
+        #cuadro3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="cuadro1" class="cuadro"></div>
+    <div id="cuadro2" class="cuadro"></div>
+    <div id="cuadro3" class="cuadro"></div>
+
+    <script>
+        let originalBackgroundColor = document.body.style.backgroundColor;
+
+        document.getElementById("cuadro1").onmouseover = function() {
+            document.body.style.backgroundColor = "red";
+        }
+        document.getElementById("cuadro1").onmouseout = function() {
+            document.body.style.backgroundColor = originalBackgroundColor;
+        }
+
+        document.getElementById("cuadro2").onmouseover = function() {
+            document.body.style.backgroundColor = "green";
+        }
+        document.getElementById("cuadro2").onmouseout = function() {
+            document.body.style.backgroundColor = originalBackgroundColor;
+        }
+
+        document.getElementById("cuadro3").onmouseover = function() {
+            document.body.style.backgroundColor = "blue";
+        }
+        document.getElementById("cuadro3").onmouseout = function() {
+            document.body.style.backgroundColor = originalBackgroundColor;
+        }
+    </script>
+</body>
+</html>

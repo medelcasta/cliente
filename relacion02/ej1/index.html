@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function boton1(){
+            let link = document.getElementById("enlace");
+            console.log(link);
+            alert("URL: " + link.href + "\nTexto: " + link.innerHTML);
+        }
+        function boton2(){
+            let link = document.getElementById("enlace");
+            link.href = "https://www.apple.com";
+            link.innerHTML = " he cambiado";
+            alert("URL: " + link.href + "\nTexto: " + link.innerHTML);
+        }
+    </script>
+</head>
+<body>
+    <a id="enlace" href="https://www.google.com">Enlace</a>
+    <button onclick="boton1()">Mostrar Enlace</button>
+    <button onclick="boton2()">Cambiar Enlace</button>
+    
+</body>
+</html>

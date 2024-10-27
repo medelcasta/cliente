@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 400px;
+            height: 400px;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            background-color: white;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        let colors = ['pink', 'black', 'red', 'blue'];
+        let celdas = document.getElementsByTagName('td');
+
+        for (let i = 0; i < celdas.length; i++) {
+            celdas[i].onclick = function() {
+                let color = this.style.backgroundColor;
+                let i = colors.indexOf(color);
+                let j = (i + 1) % colors.length;
+                this.style.backgroundColor = colors[j];
+            };
+        }
+
+    </script>
+</body>
+</html>

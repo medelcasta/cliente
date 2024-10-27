@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            height: 300px;
+            border: 2px solid palevioletred;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function cambioTam(){
+            let table = document.getElementById("tabla");
+            let ancho = prompt("Introduce el nuevo ancho: ");
+            let alto = prompt("Introduce la nueva altura: ");
+            table.style.height = ancho;
+            table.style.width = alto;
+        }
+        function cambioBorde(){
+            let table = document.getElementById("tabla");
+            let borde = prompt("Introduce el nuevo valor del borde: ");
+            table.style.border = borde;
+        }
+        function cambioAlineacion() {
+            let table = document.getElementById("tabla");
+            let alineacion = table.style.margin;
+            if (alineacion === "auto") {
+                table.style.margin = "0 auto 0 0"; // Alinear a la izquierda
+            } else if (alineacion === "0 auto 0 0") {
+                table.style.margin = "0 0 0 auto"; // Alinear a la derecha
+            } else {
+                table.style.margin = "auto"; // Centrar
+            }
+        }        
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <table id="tabla">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>  
+            <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+        </table>
+        <h3>Acciones de Cambio</h3>
+        <button onclick="cambioTam()">Tamaño</button>
+        <button onclick="cambioBorde()">Borde</button>
+        <button onclick="cambioAlineacion()">Alineación</button>
+
+    </div>
+</body>
+</html>

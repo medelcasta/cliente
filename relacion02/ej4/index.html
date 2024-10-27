@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .galeria img {
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
+        .galeria img.activa{
+            display: block;
+        }
+        .botones{
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        let i = 0;
+
+        function showImage(index) {
+            let images = document.querySelectorAll(".galeria img");
+            for (let i = 0; i < images.length; i++) {
+                images[i].classList.remove("activa");
+            }
+            images[index].classList.add("activa");
+
+            document.getElementById("retroceder").disabled = index === 0; //primera pos
+            document.getElementById("avanzar").disabled = index === images.length - 1; //ultima pos
+        }
+
+        function avanzar() {
+            let images = document.querySelectorAll(".galeria img");
+            if (i < images.length - 1) {
+                i++;
+                showImage(i);
+            }
+        }
+
+        function anterior() {
+            if (i > 0) {
+                i--;
+                showImage(i);
+            }
+        }
+
+        window.onload = function() {
+            showImage(i);
+        }
+    </script>
+</head>
+<body>
+    <div class="galeria">
+        <img src="img/foto1.jpg" class="activa" alt="Foto 1">
+        <img src="img/foto2.jpg" alt="Foto 2">
+        <img src="img/foto3.jpeg" alt="Foto 3">
+        <img src="img/foto4.jpeg" alt="Foto 4">
+        <img src="img/foto5.jpeg" alt="Foto 5">
+    </div>
+    <div class="botones">
+        <button id="retroceder" onclick="anterior()">Retroceder</button>
+        <button id="avanzar" onclick="avanzar()">Avanzar</button>
+    </div>
+</body>
+</html>
