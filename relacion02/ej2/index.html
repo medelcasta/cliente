@@ -30,9 +30,9 @@
             let table = document.getElementById("tabla");
             let alineacion = table.style.margin;
             if (alineacion === "auto") {
-                table.style.margin = "0 auto 0 0"; // Alinear a la izquierda
-            } else if (alineacion === "0 auto 0 0") {
-                table.style.margin = "0 0 0 auto"; // Alinear a la derecha
+                table.style.margin = "" // Alinear a la izquierda
+            } else if (alineacion === "") {
+                table.style.margin = ""; // Alinear a la derecha
             } else {
                 table.style.margin = "auto"; // Centrar
             }
