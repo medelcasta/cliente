@@ -13,23 +13,20 @@
         .galeria img.activa{
             display: block;
         }
-        .botones{
-            text-align: center;
-            margin-top: 10px;
-        }
+        
     </style>
     <script>
         let i = 0;
 
-        function showImage(index) {
+        function showImage(cont) {
             let images = document.querySelectorAll(".galeria img");
             for (let i = 0; i < images.length; i++) {
                 images[i].classList.remove("activa");
             }
-            images[index].classList.add("activa");
+            images[cont].classList.add("activa");
 
-            document.getElementById("retroceder").disabled = index === 0; //primera pos
-            document.getElementById("avanzar").disabled = index === images.length - 1; //ultima pos
+            document.getElementById("retroceder").disabled = cont === 0; //primera pos
+            document.getElementById("avanzar").disabled = cont === images.length - 1; //ultima pos
         }
 
         function avanzar() {

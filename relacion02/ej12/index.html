@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image</title>
+    <style>
+        #container {
+            position: relative;
+        }
+        #image {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="image" src="foto1.jpg" alt="Imagen">
+    </div>
+    <button onclick="moverDerecha()">Mover Derecha</button>
+    <button onclick="moverIzquierda()">Mover Izquierda</button>
+
+    <script>
+        let leftPosition = 50; 
+        let img = document.getElementById("image");
+
+        function moverDerecha() {
+            leftPosition += 5; 
+            img.style.left = leftPosition + "px";
+        }
+
+        function moverIzquierda() {
+            leftPosition -= 5;
+            img.style.left = leftPosition + "px";
+        }
+    </script>
+</body>
+</html>
