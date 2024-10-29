@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selectores</title>
+    <style>
+        .caja--negra{
+            width: 200px;
+            height: 50px;
+            border: 5px solid black;
+            padding: 20px;
+        }
+        .caja--roja{
+            width: 200px;
+            height: 50px;
+            border: 5px solid red;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body onload="inicioDOM()">
     <h1 id="title" onclick="color_cabecera(this)">Titulo 1</h1>
@@ -12,8 +26,8 @@
     
 
     <form name="up"><input type="text" /></form>
-    <div name="up"><input type="text" /></div>
-    <div name="down"><input type="text" /></div>
+    <div class="caja--negra" id="caja1" name="down"><input type="text"/></div>
+    <div class="caja--negra" id="caja2" name="down"><input type="text"/></div>
 
     <section id="projects" class="projects">
         <p id="parrafo1" class="parrafo1">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptates perspiciatis hic ab minus animi ipsa nisi sunt veniam dolorem.</p>
