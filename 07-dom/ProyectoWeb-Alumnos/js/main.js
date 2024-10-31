@@ -34,3 +34,36 @@ function incluirAnuncio(){
     let seccion = document.getElementById("seccionArticles");
     seccion.appendChild(nuevoHijo)
 }
+
+//Añadir un articulo 
+let creaArticulo = document.getElementById("incluyeArticulo");
+creaArticulo.addEventListener("click", incluirArticulo);
+
+function incluirArticulo(){
+    //pido al usuario titulo, descripcion, fecha y una categoria
+    let titulo = prompt("Dime el titulo del articulo");
+    let descripcion = prompt("Dime la descripcion");
+    let fechaArticulo = prompt("Dime la fecha de publicacion del articulo");
+    let catArticulo = prompt("Dime la categoria del articulo");
+
+    let nuevoArticulo = document.createElement("article");
+    nuevoArticulo.classList.add("articles__article");
+
+    nuevoArticulo.innerHTML = `<div class="article__datos">
+                                    <span>${fechaArticulo}</span>
+                                    <span>${catArticulo}</span>
+                                </div>`;
+    
+    let nuevoSubtitulo = document.createElement("h4");
+    nuevoSubtitulo.classList.add("article__subtitle");
+    nuevoSubtitulo.innerHTML = `<a href="#">${titulo}</a>`;
+
+    let nuevoP = document.createElement("p");
+    nuevoP.textContent = descripcion;
+
+    nuevoArticulo.appendChild(nuevoSubtitulo);
+    nuevoArticulo.
+
+
+
+}
