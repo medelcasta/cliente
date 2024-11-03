@@ -62,8 +62,9 @@ function incluirArticulo(){
     nuevoP.textContent = descripcion;
 
     nuevoArticulo.appendChild(nuevoSubtitulo);
-    nuevoArticulo.
+    nuevoArticulo.appendChild(nuevoP);
 
-
+    let seccion = document.getElementById("seccionArticles");
+    seccion.appendChild(nuevoArticulo);
 
 }

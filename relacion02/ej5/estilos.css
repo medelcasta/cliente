@@ -1,22 +1,18 @@
 p{
     text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    margin: auto;
+    width: 300px;
 }
 .uno {
     background-color: lightblue;
     border: 2px solid #85C1E9;
-    width: 300px;
     color: blue;
-    font-size: 16px;
-    padding: 10px;
-    margin: auto;
 }
 
 .dos {
     background-color: lightgreen;
     border: 2px solid #58D68D;
-    width: 300px;
     color: darkgreen;
-    font-size: 16px;
-    padding: 10px;
-    margin: auto;
 }

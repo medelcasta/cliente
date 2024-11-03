@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    width: 200px;
+    border: 1px solid #ccc;
+    background-color: palevioletred;
+}
+
+.menu-item {
+    border-bottom: 1px solid #ccc;
+    background-color: pink;
+}
+
+.menu-title {
+    padding: 10px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    background-color: pink;
+}
+
+.menu-title:hover {
+    background-color: #e0e0e0;
+}
+
+.submenu {
+    display: none;
+    padding-left: 10px;
+}
+
+.submenu a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #333;
+}
+
+.submenu a:hover {
+    background-color: #e0e0e0;
+}

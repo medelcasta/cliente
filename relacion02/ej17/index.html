@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrera de DIVs</title>
+    <style>
+        .race-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        .racer {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        #div1 { background-color: red; top: 0; }
+        #div2 { background-color: blue; top: 110px; }
+        #div3 { background-color: green; top: 220px; }
+        #div4 { background-color: yellow; top: 330px; }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="race-container">
+        <div id="div1" class="racer"></div>
+        <div id="div2" class="racer"></div>
+        <div id="div3" class="racer"></div>
+        <div id="div4" class="racer"></div>
+    </div>
+    <button onclick="startRace()">CORRER</button>
+    <button onclick="resetRace()">RESET</button>
+
+    <script>
+        let raceIntervals = [];
+
+        function startRace() {
+            const divs = document.querySelectorAll('.racer');
+            divs.forEach(div => {
+                let speed = Math.random() * 10 + 1;
+                let interval = setInterval(() => {
+                    let currentLeft = parseInt(div.style.left || 0, 10);
+                    div.style.left = (currentLeft + speed) + 'px';
+                    if (currentLeft + 100 >= window.innerWidth) {
+                        clearInterval(interval);
+                        raceIntervals.forEach(clearInterval);
+                        raceIntervals = [];
+                        alert(`${div.id} ha ganado la carrera!`);
+                    }
+                }, 100);
+                raceIntervals.push(interval);
+            });
+        }
+
+        function resetRace() {
+            raceIntervals.forEach(clearInterval);
+            raceIntervals = [];
+            const divs = document.querySelectorAll('.racer');
+            divs.forEach(div => {
+                div.style.left = '0px';
+            });
+        }
+    </script>
+</body>
+</html>
