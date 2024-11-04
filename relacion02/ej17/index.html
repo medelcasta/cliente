@@ -17,10 +17,22 @@
             width: 100px;
             height: 100px;
         }
-        #div1 { background-color: red; top: 0; }
-        #div2 { background-color: blue; top: 110px; }
-        #div3 { background-color: green; top: 220px; }
-        #div4 { background-color: yellow; top: 330px; }
+        #div1 { 
+            background-color: red; 
+            top: 0; 
+        }
+        #div2 { 
+            background-color: blue;
+             top: 110px; 
+        }
+        #div3 { 
+            background-color: green; 
+            top: 220px; 
+        }
+        #div4 { 
+            background-color: orange; 
+            top: 330px; 
+        }
         button {
             margin-top: 20px;
         }
@@ -33,14 +45,16 @@
         <div id="div3" class="racer"></div>
         <div id="div4" class="racer"></div>
     </div>
-    <button onclick="startRace()">CORRER</button>
+    <button id="btnCorrer">CORRER</button>
     <button onclick="resetRace()">RESET</button>
 
     <script>
         let raceIntervals = [];
+        let btnCorrer = document.getElementById('btnCorrer');
+        btnCorrer.addEventListener('click', startRace)
 
         function startRace() {
-            const divs = document.querySelectorAll('.racer');
+            let divs = document.querySelectorAll('.racer');
             divs.forEach(div => {
                 let speed = Math.random() * 10 + 1;
                 let interval = setInterval(() => {
@@ -56,6 +70,8 @@
                 raceIntervals.push(interval);
             });
         }
+        // setInterval(code, delay)
+        f
 
         function resetRace() {
             raceIntervals.forEach(clearInterval);
