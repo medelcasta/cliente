@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // si es interpretado, la barra de deslizado vertical.
 // Window.location: Obtiene/fija la location, o URL actual, del objeto de la ventana.
 // Window.navigator: Returns a reference to the navigator object.
-// Window.sessionStorage: Returns a reference to the session storage object used to store data that may only be accessed by the origin that created it.
+// Window.sessionStorage: Returns a reference to the session storage object used to store
+// data that may only be accessed by the origin that created it.
 // Window.localStorage: Retorna una referencia al objeto almacenamiento local usado para
 // almacenar datos que pueden ser de accedidos por el origen que los creo.
 

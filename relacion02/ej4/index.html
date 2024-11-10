@@ -11,8 +11,9 @@
             display: none;
         }
         .galeria img.activa{
-            display: block;
+            display: block; 
         }
+        /*Display: block para que la foto que esta activa se vea */
         
     </style>
     <script>
@@ -21,7 +22,7 @@
         function showImage(cont) {
             let images = document.querySelectorAll(".galeria img");
             for (let i = 0; i < images.length; i++) {
-                images[i].classList.remove("activa");
+                images[i].classList.remove("activa"); //quitamos que se vea (= pasa a oculto)
             }
             images[cont].classList.add("activa");
 

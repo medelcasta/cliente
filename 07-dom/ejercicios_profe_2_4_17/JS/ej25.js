@@ -19,7 +19,6 @@ btnAgregarAntes.addEventListener('click', agregarAntes);
 
 function agregarAntes() {
     let primerElem = document.getElementById('primerElemento');
-
     let nuevoElem = document.createElement('li');
     nuevoElem.classList.add('tarea');
     nuevoElem.textContent = "Nueva tarea delante del 1er elemento";

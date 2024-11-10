@@ -71,7 +71,7 @@ function inicioDOM(){
    console.log(sectionProjects);
    elementos = sectionProjects.querySelectorAll('p.parrafos1'); 
    console.log(`Número de elementos que tengo: ${elementos.length}`);
-   for (let i=0; i<elementos.length; i++){
+   for (let i=0; i < elementos.length; i++){
       console.log(`Elemento ${i+1}: ${elementos[i].innerHTML}`);
    }
          
