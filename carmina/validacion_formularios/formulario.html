@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #nombreError {
+          display: none;
+          font-size: 0.8em;
+        }
+  
+        #nombreError.visible {
+          display: block;
+        }
+
+        #precioError {
+          display: none;
+          font-size: 0.8em;
+        }
+  
+        #precioError.visible {
+          display: block;
+        }
+  
+        input.invalido {
+          border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label>Nombre</label>
+        <input type="text" name="nombre" id="nombre" />
+        <span role="alert" id="nombreError" aria-hidden="true">
+            Ingrese su nombre, por favor
+        </span>
+
+        <label>Precio</label>
+        <input type="number" name="precio" id="precio" />
+        <span role="alert" id="precioError" aria-hidden="true">
+            Ingrese el precio, por favor
+        </span>
+
+        <label>Imagen</label>
+        <input type="file" name="imagen" id="imagen" />
+        <span role="alert" id="imagerError" aria-hidden="true">
+            Ingrese el imagen, por favor
+        </span>
+        
+        <button id="enviar">Enviar</button>
+
+    </form>
+        <script>
+            const enviar = document.getElementById("enviar");
+
+            enviar.addEventListener("click", validarNombre);
+            enviar.addEventListener("click", validarPrecio);
+      
+            function validarNombre(e) {
+              e.preventDefault(); //Pone en marcha el resto de metodos (activa la accion)
+      
+              const campoNombre = document.getElementById("nombre");
+              let valido = true;
+      
+              if (!campoNombre.value) { // no existe (esta vacio)
+                const nombreError = document.getElementById("nombreError");
+                nombreError.classList.add("visible");
+                campoNombre.classList.add("invalido");
+                nombreError.setAttribute("aria-hidden", false);
+                nombreError.setAttribute("aria-invalid", true);
+              }else{
+                  const nombreError = document.getElementById("nombreError");
+                  nombreError.classList.remove("visible");
+                  campoNombre.classList.remove("invalido");
+                  nombreError.setAttribute("aria-hidden", true); //oculto
+                  nombreError.setAttribute("aria-invalid", false); //no es del mismo tipo 
+              }
+              return valido;
+            }
+
+            function validarPrecio(e) {
+              e.preventDefault(); //Pone en marcha el resto de metodos (activa la accion)
+      
+              const campoPrecio = document.getElementById("precio");
+              let valido = true;
+      
+              if (!campoPrecio.value) { // no existe (esta vacio)
+                const precioError = document.getElementById("precioError");
+                precioError.classList.add("visible");
+                campoPrecio.classList.add("invalido");
+                precioError.setAttribute("aria-hidden", false);
+                precioError.setAttribute("aria-invalid", true);
+              }else{
+                  const precioError = document.getElementById("precioError");
+                  precioError.classList.remove("visible");
+                  campoPrecio.classList.remove("invalido");
+                  precioError.setAttribute("aria-hidden", true); //oculto
+                  precioError.setAttribute("aria-invalid", false); //no es del mismo tipo 
+              }
+
+            //   if(isNaN(campoPrecio.value)){
+            //     const precioError = document.getElementById("precioError");
+            //     precioError.classList.add("visible");
+            //     campoPrecio.classList.add("invalido");
+            //     precioError.setAttribute("aria-hidden", false);
+            //     precioError.setAttribute("aria-invalid", true);
+            //   }else{
+            //       const precioError = document.getElementById("precioError");
+            //       precioError.classList.remove("visible");
+            //       campoPrecio.classList.remove("invalido");
+            //       precioError.setAttribute("aria-hidden", true); //oculto
+            //       precioError.setAttribute("aria-invalid", false); //no es del mismo tipo 
+            //   }
+
+
+              return valido;
+              
+            
+            }
+           
+          </script>
+</body>
+</html>
