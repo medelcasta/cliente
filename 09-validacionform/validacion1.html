@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script languaje='javascript'>
+    // function contarPalabras(form)
+    // {
+    // texto = form.mensaje.value
+    // texto = texto.split(' ')
+    // form.cantidad.value=texto.length
+    // }
+
+    function tamMax(form){
+        texto = form.mensaje.value;
+
+        if(texto.length < 10 || texto.length > 20){
+            console.log("Tamaño no valido");
+        }
+    }
+</script>
+</head>
+<body>
+    <form name='formulario1' method='POST' action='#' target='_blank'>
+        <b>Por favor, redacte aquí su mensaje</b> Palabras escritas:
+        <input type='text' name='cantidad' value='0' size='2'><br>
+        <textarea rows='4' cols='35' name='mensaje' onKeyPress='tamMax(this.form); if (event.keycode1 == 13) form.mensaje.value +=" ";'></textarea><br>
+        <input type='submit' value='Enviar'>
+        </form>
+</body>
+</html>
+
+     

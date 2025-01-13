@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+        input:invalid{
+            border: 2px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validacion de Formularios</h1>
+
+    <form name="form1" method="POST" action='#' target='_blank'>
+        <b>Por favor, redacte aqui su mensaje</b> Palabras escritas:
+        <input type='text' name='cantidad' value='0' size='2'><br>
+        <textarea name="mensaje" rows="4" cols="35" onkeypress='tamMaximo(this.form1)'></textarea><br>
+        <input type='submit' value="Enviar">
+    </form>
+        <script>
+            // function contarPalabras(form2){
+            //     m = form2.mensaje.value;
+            //     m = m.split(" ");
+            //     form2.cantidad = m.length;
+            // }
+
+            function tamMaximo(form3){
+                form.cantidad.value = texto.length;
+                if(texto.length < 10 || texto.length > 20){
+                    console.log("No cumple el tamaño");
+                }
+            } 
+
+        </script>
+
+</body>
+</html>
