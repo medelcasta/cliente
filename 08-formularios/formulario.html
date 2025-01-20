@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="document.formulario.campo.focus();
+    document.formulario.campo.select()">
+
+    <form id="nombreForm">
+        <input type="text" id="nombreCampo">
+        <input type="text" name="campo1" id="campo1" onkeypress="return siguienteFoco(this.form, 'campo2', event)">
+        <input type="text" name="campo2" id="campo2">
+    </form>
+
+    <script>
+        var elemento = document.forms["nombreForm"].elements["nombreCampo"];
+        elemento.focus();
+        elemento.select();
+
+        function siguienteFoco(form, siguienteCampo, evt){
+            evt = (evt) ? evt : event;
+            var codCaracter = (evt.charCode) ? evt.charCode :
+                ((evt.which) ? evt.which : evt.keyCode);
+            if (codCaracter == 13 || codCaracter == 3){
+                form.elements[siguienteCampo].focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
