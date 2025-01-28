@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--b) Mejora el ejercicio anterior usando solo dos campos y un botón para realizar ambas
+conversiones. Para saber qué conversión debemos realizar en cada momento, esta se debe
+seleccionar de una lista desplegable.-->
+<body>
+    <form>
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" type="number" step="0.01">
+        <br>
+        <label for="conversion">Conversión:</label>
+        <select id="conversion">
+          <option value="aEuros">Dólares a Euros</option>
+          <option value="aDolares">Euros a Dólares</option>
+        </select>
+        <br>
+        <button type="button" onclick="realizarConversion()">Convertir</button>
+      </form>
+      
+      <script>
+        function realizarConversion() {
+          const cantidad = parseFloat(document.getElementById("cantidad").value) || 0;
+          const conversion = document.getElementById("conversion").value;
+          const resultado = conversion === "aEuros" ? cantidad * 0.83 : cantidad / 0.83;
+          alert(`El resultado es: ${resultado.toFixed(2)}`);
+        }
+      </script>
+      
+</body>
+</html>

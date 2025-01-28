@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1.-Crea un formulario con dos campos de texto y un botón llamado copiar. El segundo
+campo de texto debe estar colocado en modo de solo lectura.
+Desarrolla un programa que, cuando se pulse el botón copiar, copie todo el contenido del
+primer campo de texto en el segundo.-->
+<form>
+    <label for="campo1">Texto:</label>
+    <input id="campo1" type="text">
+    <br>
+    <label for="campo2">Texto Copiado:</label>
+    <input id="campo2" type="text" readonly>
+    <br>
+    <button type="button" onclick="copiarTexto()">Copiar</button>
+  </form>
+  
+  <script>
+    function copiarTexto() {
+      const campo1 = document.getElementById("campo1").value;
+      document.getElementById("campo2").value = campo1;
+    }
+  </script>
+  
+</body>
+</html>

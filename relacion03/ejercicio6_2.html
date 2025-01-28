@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Crea un formulario con varios elementos textbox (pej, países) y una lista desplegable
+vacía.
+Implementa el código necesario para que, cada vez que se marque un checkbox, se cree
+una entrada nueva en la lista desplegable con el país correspondiente. Si se desmarca un
+checkbox, debe eliminarse el país correspondiente de la lista.-->
+<body>
+    <form>
+        <label><input type="checkbox" value="España" onchange="actualizarLista(this)"> España</label>
+        <label><input type="checkbox" value="Francia" onchange="actualizarLista(this)"> Francia</label>
+        <label><input type="checkbox" value="Italia" onchange="actualizarLista(this)"> Italia</label>
+        <br>
+        <label for="paises">Países:</label>
+        <select id="paises"></select>
+      </form>
+      
+      <script>
+        function actualizarLista(checkbox) {
+          const lista = document.getElementById("paises");
+          if (checkbox.checked) {
+            const option = document.createElement("option");
+            option.text = checkbox.value;
+            option.value = checkbox.value;
+            lista.add(option);
+          } else {
+            [...lista.options].forEach(option => {
+              if (option.value === checkbox.value) lista.remove(option.index);
+            });
+          }
+        }
+      </script>      
+</body>
+</html>

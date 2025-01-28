@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--b) Indicando el color deseado entre los elementos de una lista desplegable (al menos 3
+colores para elegir).-->
+<body>
+    <div id="colorDiv" style="height: 200px; background-color: lightblue;"></div>
+<br>
+<form>
+  <label for="colorSelect">Selecciona un color:</label>
+  <select id="colorSelect" onchange="cambiarColor(this)">
+    <option value="lightblue">Azul</option>
+    <option value="lightgreen">Verde</option>
+    <option value="lightcoral">Rojo</option>
+  </select>
+</form>
+
+<script>
+  function cambiarColor(select) {
+    document.getElementById("colorDiv").style.backgroundColor = select.value;
+  }
+</script>
+
+</body>
+</html>

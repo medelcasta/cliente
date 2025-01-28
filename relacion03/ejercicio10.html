@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listas dependientes</title>
+</head>
+<!-- Crea un formulario con dos listas desplegables y un botón. La primera lista
+desplegable tendrá los valores: vacío (el valor por defecto), Intel, AMD y Nvidia.
+La segunda lista inicialmente no tendrá ningún elemento. Al elegir un valor en la segunda,
+la segunda lista se llenará con los valores siguientes:
+• Para Intel: HD 3000, HD 4000, IRIS 600.
+• Para AMD: RX Series 500, Vega Series, RX Series 6000.
+• Para Nvidia: GTX Serie 1000, GTX Serie 2000, GTX Serie 3000.
+Además, al pulsar el botón, este debe comprobar que ambas listas tienen un valor
+seleccionado e informará usando un alert de si eso ocurre o no.-->
+<body>
+  <form id="formulario">
+    <label for="fabricante">Fabricante:</label>
+    <select id="fabricante" onchange="actualizarModelos()" required>
+      <option value="">Seleccionar...</option>
+      <option value="Intel">Intel</option>
+      <option value="AMD">AMD</option>
+      <option value="Nvidia">Nvidia</option>
+    </select>
+    <br>
+
+    <label for="modelo">Modelo:</label>
+    <select id="modelo" required>
+      <option value="">Seleccionar...</option>
+    </select>
+    <br>
+
+    <button type="submit">Comprobar</button>
+  </form>
+
+  <script>
+    const modelosPorFabricante = {
+      Intel: ["HD 3000", "HD 4000", "IRIS 600"],
+      AMD: ["RX Series 500", "Vega Series", "RX Series 6000"],
+      Nvidia: ["GTX Serie 1000", "GTX Serie 2000", "GTX Serie 3000"]
+    };
+
+    function actualizarModelos() {
+      const fabricante = document.getElementById("fabricante").value;
+      const modeloSelect = document.getElementById("modelo");
+
+      modeloSelect.innerHTML = '<option value="">Seleccionar...</option>';
+
+      if (fabricante && modelosPorFabricante[fabricante]) {
+        modelosPorFabricante[fabricante].forEach(modelo => {
+          const option = document.createElement("option");
+          option.value = modelo;
+          option.textContent = modelo;
+          modeloSelect.appendChild(option);
+        });
+      }
+    }
+
+    document.getElementById("formulario").onsubmit = function (e) {
+      if (!document.getElementById("fabricante").value || !document.getElementById("modelo").value) {
+        alert("Ambas listas deben tener una selección.");
+        e.preventDefault();
+      }
+    };
+  </script>
+</body>
+</html>

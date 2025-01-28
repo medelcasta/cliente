@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--b) Mejora el apartado anterior quitando el botón. Ahora cada vez que se marque un
+checkbox, se añadirá al contenido del textarea. Si se desmarca, hay que quitarlo-->
+    <form>
+        <label><input type="checkbox" name="opciones" value="Deporte" onchange="actualizarTexto(this)"> Deporte</label>
+        <label><input type="checkbox" name="opciones" value="Música" onchange="actualizarTexto(this)"> Música</label>
+        <label><input type="checkbox" name="opciones" value="Viajar" onchange="actualizarTexto(this)"> Viajar</label>
+        <br>
+        <textarea id="resultado" readonly></textarea>
+      </form>
+      
+      <script>
+        function actualizarTexto(checkbox) {
+          const resultado = document.getElementById("resultado");
+          const texto = checkbox.value;
+          if (checkbox.checked) {
+            resultado.value += texto + ", ";
+          } else {
+            resultado.value = resultado.value.replace(texto + ", ", "");
+          }
+        }
+      </script>      
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Crea un formulario con dos campos de texto y un boton llamado COMPROBAR. El
+botón debe comprobar si el contenido de uno de los campos es anagrama del otro.
+Mostrará el resultado haciendo uso de la función alert. Si ambos campos están vacíos, no
+se considerará que son anagramas.
+Nota: una palabra es anagrama de otra si las dos tienen las mismas letras, con el mismo número de
+apariciones, pero en un orden diferente.-->
+<body>
+    <form>
+        <label for="texto1">Texto 1:</label>
+        <input id="texto1" type="text">
+        <br>
+        <label for="texto2">Texto 2:</label>
+        <input id="texto2" type="text">
+        <br>
+        <button type="button" onclick="verificarAnagramas()">Comprobar</button>
+      </form>
+      
+      <script>
+        function verificarAnagramas() {
+          const texto1 = document.getElementById("texto1").value.trim();
+          const texto2 = document.getElementById("texto2").value.trim();
+      
+          if (!texto1 || !texto2) {
+            alert("Ambos campos deben tener texto.");
+            return;
+          }
+      
+          const normalizar = str => str.toLowerCase().split("").sort().join("");
+          const esAnagrama = normalizar(texto1) === normalizar(texto2);
+      
+          alert(esAnagrama ? "Son anagramas." : "No son anagramas.");
+        }
+      </script>
+      
+</body>
+</html>

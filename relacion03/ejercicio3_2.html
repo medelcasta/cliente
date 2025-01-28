@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crea un formulario con varios checkbox (pej, aficiones), un textarea y un botón.
+Implementa un programa que, tras pulsar el botón se muestre dentro del textarea todas las
+opciones marcadas.-->
+    <form>
+        <label><input type="checkbox" name="opciones" value="Deporte"> Deporte</label>
+        <label><input type="checkbox" name="opciones" value="Música"> Música</label>
+        <label><input type="checkbox" name="opciones" value="Viajar"> Viajar</label>
+        <br>
+        <button type="button" onclick="mostrarSeleccion()">Mostrar</button>
+        <br>
+        <textarea id="resultado" readonly></textarea>
+      </form>
+      
+      <script>
+        function mostrarSeleccion() {
+          const opciones = document.querySelectorAll('input[name="opciones"]:checked');
+          const resultado = [...opciones].map(opcion => opcion.value).join(", ");
+          document.getElementById("resultado").value = resultado;
+        }
+      </script>
+      
+</body>
+</html>

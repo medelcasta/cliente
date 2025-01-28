@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--c) Limita a que sólo se puedan escribir 100 caracteres en el textarea. Después de los 100
+caracteres escritos, no se puede seguir escribiendo. El botón Publicar no debe cambiar su
+comportamiento. Nota: busca el evento adecuado para este ejercicio.-->
+<body>
+    <form>
+        <label for="texto">Texto:</label>
+        <textarea id="texto" maxlength="100" oninput="contarCaracteres()"></textarea>
+        <p id="contador">0/100 caracteres</p>
+        <br>
+        <button type="button" onclick="publicarTexto()">Publicar</button>
+      </form>
+      <div id="contenedor"></div>
+      
+      <script>
+        function contarCaracteres() {
+          const texto = document.getElementById("texto").value;
+          document.getElementById("contador").textContent = `${texto.length}/100 caracteres`;
+        }
+      
+        function publicarTexto() {
+          const texto = document.getElementById("texto").value.slice(0, 50);
+          const div = document.createElement("div");
+          div.textContent = texto;
+          div.style.border = "1px solid black";
+          div.style.padding = "10px";
+          div.style.margin = "5px 0";
+          document.getElementById("contenedor").appendChild(div);
+        }
+      </script>
+      
+</body>
+</html>

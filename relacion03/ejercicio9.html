@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validar Formulario</title>
+</head>
+<!--Valida un Formulario con los siguientes campos y condiciones:
+- Nombre → Debe contener al menos una minúscula, mayúscula, número y alguno de
+estos signos (. - _)
+- Teléfono → (XXX) XX-XX-XX
+- Nº meses → Debe introducir una cantidad entre 1 y 24
+- Botón para Registrar
+Antes de enviar el registro comprobará que los campos introducidos son válidos.
+Al enviar aparecerá una ventana nueva durante 3 segundos, tras este tiempo se cerrará la
+ventana
+Una vez registrado lo que ocurre es que se añade el valor de los meses a una cookie y se
+recarga la página.
+Al entrar en la página si existe la cookie con los meses, mostrará un aviso con
+su valor, pero no cargará el formulario. Si existe la cookie de sesión reemplaza el DOM
+por un mensaje en vez del formulario donde muestra los meses y un botón para eliminar
+la cookie.
+-->
+<body>
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" required>
+    <br>
+
+    <label for="telefono">Teléfono:</label>
+    <input id="telefono" type="text" pattern="^\(\d{3}\) \d{2}-\d{2}-\d{2}$" required>
+    <br>
+
+    <label for="meses">Nº Meses:</label>
+    <input id="meses" type="number" min="1" max="24" required>
+    <br>
+
+    <button type="submit">Registrar</button>
+  </form>
+
+  <script>
+    document.getElementById("formulario").onsubmit = function (e) {
+      const nombre = document.getElementById("nombre").value;
+      const telefono = document.getElementById("telefono").value;
+      const meses = document.getElementById("meses").value;
+
+      const nombreRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.\-_]).{1,}$/;
+
+      if (!nombreRegex.test(nombre)) {
+        alert("Nombre inválido: Debe contener una minúscula, una mayúscula, un número y alguno de estos signos .-_");
+        e.preventDefault();
+      } else if (!telefono.match(/^\(\d{3}\) \d{2}-\d{2}-\d{2}$/)) {
+        alert("Teléfono inválido. Formato correcto: (XXX) XX-XX-XX");
+        e.preventDefault();
+      } else if (meses < 1 || meses > 24) {
+        alert("Nº Meses inválido. Debe estar entre 1 y 24.");
+        e.preventDefault();
+      }
+    };
+  </script>
+</body>
+</html>

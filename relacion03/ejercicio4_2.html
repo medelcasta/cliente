@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Realiza un programa que, haciendo uso de dos campos de texto y un botón, realice la
+conversión de dólares y euros (1$ = 0.83€).
+Completa el ejercicio añadiendo dos campos y un botón nuevos para implementar la
+conversión contraria (de euros a dólares).-->
+<body>
+    <form>
+        <label for="dolares">Dólares:</label>
+        <input id="dolares" type="number" step="0.01">
+        <br>
+        <label for="euros">Euros:</label>
+        <input id="euros" type="number" step="0.01">
+        <br>
+        <button type="button" onclick="convertirAEuros()">Convertir a Euros</button>
+        <button type="button" onclick="convertirADolares()">Convertir a Dólares</button>
+      </form>
+      
+      <script>
+        function convertirAEuros() {
+          const dolares = parseFloat(document.getElementById("dolares").value) || 0;
+          document.getElementById("euros").value = (dolares * 0.83).toFixed(2);
+        }
+      
+        function convertirADolares() {
+          const euros = parseFloat(document.getElementById("euros").value) || 0;
+          document.getElementById("dolares").value = (euros / 0.83).toFixed(2);
+        }
+      </script>      
+</body>
+</html>

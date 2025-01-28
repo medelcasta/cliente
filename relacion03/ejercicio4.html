@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Confecciona una expresion regular que valide el ingreso del nombre 
+    de un dia de la semana y un numero de 1 o 2 digitos. Los valores serán 
+    desde Lunes o numero 0 hasta Domingo numero 6-->
+    <script>
+        let dia = prompt("Ingrese el nombre de un día de la semana y un número de 1 o 2 dígitos");
+        const regex = /^(Lunes|Martes|Miercoles|Jueves|Viernes|Sabado|Domingo)\s[0-6]{1,2}$/;
+        if(regex.test(dia)){
+            alert("El formato es correcto");
+        }else{
+            alert("El formato es incorrecto");
+        }
+    </script>
+</body>
+</html>

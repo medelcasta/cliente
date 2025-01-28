@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--Solicita el ingreso de la coordenada de un punto. 
+            El formato a ingresar por teclado es 999,999. Los 
+            numeros pueden tener entre 1 y 3 digitos-->
+    
+        <script>
+            let num = prompt("Ingrese la coordenada del punto en el formato 999,999");
+            const regex = /^\d{1,3},\d{1,3}$/;
+            if(regex.test(num)){
+                alert("El formato es correcto");
+            }else{
+                alert("El formato es incorrecto");
+            }
+        </script>
+    </body>
+    </html>

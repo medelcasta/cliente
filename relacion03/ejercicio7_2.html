@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Crea un textarea y un botón llamado Publicar. Cada vez que se pulse el botón
+Publicar, se va a crear un div cuyo contenido será el texto del textarea. Nota: maqueta de
+manera vistosa los DIV creados.-->
+<body>
+    <form>
+        <label for="texto">Texto:</label>
+        <textarea id="texto" maxlength="100"></textarea>
+        <br>
+        <button type="button" onclick="publicarTexto()">Publicar</button>
+      </form>
+      <div id="contenedor"></div>
+      
+      <script>
+        function publicarTexto() {
+          const texto = document.getElementById("texto").value;
+          const div = document.createElement("div");
+          div.textContent = texto;
+          div.style.border = "1px solid black";
+          div.style.padding = "10px";
+          div.style.margin = "5px 0";
+          document.getElementById("contenedor").appendChild(div);
+        }
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Crea un campo de texto en el que se deba colocar un DNI (nueve dígitos y una letra).
+Cuando ese elemento pierda el foco (crea más elementos para que eso ocurra), se debe
+validar lo siguiente:
+• Que hay nueve números y una letra.
+• Que la letra introducida es la letra correcta (Aquí se indica:
+http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-
+nie)-->
+<body>
+    <form>
+        <label for="dni">DNI:</label>
+        <input id="dni" type="text" onblur="validarDNI()" placeholder="12345678Z">
+        <p id="mensaje"></p>
+      </form>
+      
+      <script>
+        function validarDNI() {
+          const dni = document.getElementById("dni").value.toUpperCase();
+          const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+          const dniRegex = /^\d{8}[A-Z]$/;
+      
+          if (!dniRegex.test(dni)) {
+            document.getElementById("mensaje").textContent = "Formato incorrecto.";
+            return;
+          }
+      
+          const numero = parseInt(dni.slice(0, 8), 10);
+          const letra = dni.slice(-1);
+          const letraCorrecta = letras[numero % 23];
+      
+          document.getElementById("mensaje").textContent = 
+            letra === letraCorrecta ? "DNI válido." : "DNI inválido.";
+        }
+      </script>
+      
+</body>
+</html>

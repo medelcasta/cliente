@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Coloca un div que ocupe toda la pantalla, que tenga una altura de 200px y un color de
+fondo (el que quieras). Crea un programa que permita cambiar el color de ese DIV por
+otros usando:
+a) Indicando el color deseado entre alguna de las opciones de un bloque de botones radio
+(al menos 3 colores para elegir).-->
+<body>
+    <div id="colorDiv" style="height: 200px; background-color: lightblue;"></div>
+<br>
+<form>
+  <label><input type="radio" name="color" value="lightblue" onclick="cambiarColor(this)"> Azul</label>
+  <label><input type="radio" name="color" value="lightgreen" onclick="cambiarColor(this)"> Verde</label>
+  <label><input type="radio" name="color" value="lightcoral" onclick="cambiarColor(this)"> Rojo</label>
+</form>
+
+<script>
+  function cambiarColor(radio) {
+    document.getElementById("colorDiv").style.backgroundColor = radio.value;
+  }
+</script>
+
+</body>
+</html>
