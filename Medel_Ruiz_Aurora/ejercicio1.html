@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="">
+        <h1>Ejercicio 1</h1>
+        <label>Nombre</label>
+        <input type="text" id="nombre"><br>
+        <label>Email</label>
+        <input type="text" id="email"><br>
+        <label>Asunto</label>
+        <select name="asunto" id="asunto">
+            <option value="info">Pedir Informacion</option>
+            <option value="curso">Apuntarse a un curso</option>
+            <option value="otros">otros</option>
+        </select>
+        <div id="midiv"></div>
+        <div id="midiv2"></div>
+
+    </form>
+
+    <script>
+        const select = document.getElementById("asunto");
+        const caja = document.getElementById("midiv");
+        const caja2 = document.getElementById("midiv2");
+        
+        select.addEventListener("change", function(){
+            if(select.value == "curso"){
+                    //caja2.clean();
+                    let label = document.createElement("label");
+                    label.textContent = "Curso";
+                    const select = document.createElement("select");
+                    const daw = document.createElement("option");
+                    daw.value = "DAW";
+                    daw.text = "DAW";
+                    const dam = document.createElement("option");
+                    dam.value = "DAM";
+                    dam.text = "DAM";
+                    const asir = document.createElement("option");
+                    asir.value = "ASIR";
+                    asir.text = "ASIR";
+                    select.appendChild(daw);
+                    select.appendChild(dam);
+                    select.appendChild(asir);
+                    caja.appendChild(label);
+                    caja.appendChild(select);      
+            }
+            if(select.value == "otros"){
+                    let label = document.createElement("label");
+                    label.textContent = "Otra opcion";
+                    const input = document.createElement("input");
+                    input.type = "text";
+                    caja.appendChild(label);
+                    caja.appendChild(input);
+            }
+        });
+    </script>
+</body>
+</html>

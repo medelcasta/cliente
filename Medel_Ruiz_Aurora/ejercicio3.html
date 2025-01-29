@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #errorNombre{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        function verificarName() {
+            let nombre = document.getElementById("nombre").value;
+            let caja = document.getElementById("nameError");
+            if (nombre === 0) {
+                // let label = document.createElement('label');
+                // label.textContent = "Contraseña diferente";
+                // label.style.color = "red";
+                // caja.appendChild(label);
+                alert("El nombre es obligatorio");
+            } 
+            if(nombre.legth < 2){
+                // let label = document.createElement('label');
+                // label.textContent = "Contraseña diferente";
+                // label.style.color = "red";
+                // caja.appendChild(label);
+                alert("El nombre debe ser mayor a 2 caracteres")
+            }
+        }
+        function verificarApellido() {
+            let apellido1 = document.getElementById("apellido1").value;
+            let apellido2 = document.getElementById("apellido2").value;
+            let caja = document.getElementById("contraError");
+            let val = true;
+            if (apellido1 === 0) {
+                 let label = document.createElement('label');
+                 label.textContent = "Contraseña diferente";
+                 label.style.color = "red";
+                 caja.appendChild(label);
+                alert("El primer apellido es obligatorio");
+                val = false;
+            } 
+            if(apellido1.legth < 2){
+                 let label = document.createElement('label');
+                 label.textContent = "Contraseña diferente";
+                 label.style.color = "red";
+                 caja.appendChild(label);
+                alert("El primer apellido debe ser mayor a 2 caracteres");
+                val = false;
+            }
+            if(apellido2 === 0){
+                alert("El segundo apellido es obligatorio");
+                val = false;
+            }
+            if(apellido2 < 2){
+                alert("El segundo apellido debe ser mayor a 2 caracteres");
+                val = false;
+            }
+            return val;
+        }
+
+        function verificarPasaport(){
+            const input = document.getElementById("pasaporte");
+            const archivo = input.files[0];
+
+            if (archivo) {
+                const nombre = archivo.name;
+                const extension = nombre.split('.').pop().toLowerCase(); 
+                if (extension === "pdf") {
+                    alert("Correcto");
+                } else {
+                    alert("Incorrecto. Solo se aceptan archivos .pdf");
+                }
+            } else {
+                alert("Por favor, selecciona un archivo.");
+            }
+        }
+
+        function verificarPwd() {
+            let contra = document.getElementById("contra").value;
+            let repetir = document.getElementById("repetir").value;
+            let caja = document.getElementById("contraError");
+            if (contra === repetir) {
+               
+            } else {
+                //label.textContent = "";
+                
+                let label = document.createElement('label');
+                label.textContent = "Contraseña diferente";
+                label.style.color = "red";
+                caja.appendChild(label);
+    
+                //alert("Contraseña diferente")
+            }
+        }
+        function confirmarBorrado(form){
+            borrar = window.confirm("se van a borrar los datos introducidos en el form");
+            if (borrar) {
+            form.reset();
+            } else {
+                alert("No se ha borrado el mensaje");
+            }
+        }
+
+        function monstrarResultado(form){
+            let nombre = document.getElementById("nombre").value;
+            let apellido1 = document.getElementById("apellido1").value;
+            let apellido2 = document.getElementById("apellido2").value;
+            let contra = document.getElementById("contra").value;
+
+            alert("Nombre" + nombre + "\nPrimer Apellido" + apellido1+ "\nSegundo Apellido" + apellido2 + "\nContraseña" + contra);
+        }
+        
+        
+        // Agregar un evento de entrada a los campos de texto
+        window.onload = function() {
+            document.getElementById("contra").addEventListener("input", verificarPwd);
+            document.getElementById("repetir").addEventListener("input", verificarPwd);
+            document.getElementById("nombre").addEventListener("input", verificarName);
+            document.getElementById("pasaporte").addEventListener("input", verificarPasaport);
+            document.getElementById("app1").addEventListener("input", verificarApellido);
+            document.getElementById("btn").addEventListener("click", confirmarBorrado);
+            document.getElementById("boton").addEventListener("click", monstrarResultado);
+            document.getElementById("app2").addEventListener("input", verificarApellido);
+        };
+    </script>
+
+    <form name="formulario3" method="POST" target="_blank">
+        <h1>Ejercicio 3</h1>
+        <label>Nombre</label>
+        <input id="nom" type="text" name="nombre" minlength="2"><div id="nameError"></div><br>
+        <label>Primer Apellido</label>
+        <input id="app1" type="text" name="apellido"><div id="app1Error"></div><br>
+        <label>Segundo Apellido</label>
+        <input id="app2" type="text" name="apellido"><div id="app2Error"></div><br>
+
+        <label>Pasaporte</label>
+        <input id="Pasaporte" type="file" name="pasaporte"><div id="pwdError"></div><br>
+
+        <label>Estado civil</label><br>
+        <div>
+            <label>Casado <input type="radio" value="Casado" name="Casado"></label><br>
+            <label>Soltero <input type="radio" value="soltero" name="soltero"></label><br>
+            <label>Viudo <input type="radio" value="viudo" name="viudo"></label><br>
+        </div>
+
+        <label>Email</label>
+        <input type="email" pattern="/^[a-z0-9]{1,}.[a-z0-9]{0,}@[a-z0-9]{1,}.[a-z0-9]{0,}.[a-z]{1,3}$/">
+        <br>
+        <label>Contraseña</label>
+        <input type="password" id="contra">
+        
+        <label>Repetir Contraseña</label>
+        <input type="password" id="repetir">
+        <div id="contraError"></div>
+        <br>
+        <input id="boton" type="submit" value="Enviar" onclick="monstrarResultado(this.form)">
+        <input id="btn" type="button" value="Borrar" onclick="confirmarBorrado(this.form)">
+    </form>
+</body>
+</html>

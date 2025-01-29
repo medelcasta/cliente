@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Tarjeta de Crédito</title>
+    <style>
+        input {
+            width: 50px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="creditCardForm">
+        <input type="text" id="part1" maxlength="4" placeholder="0000">
+        <input type="text" id="part2" maxlength="4" placeholder="0000">
+        <input type="text" id="part3" maxlength="4" placeholder="0000">
+        <input type="text" id="part4" maxlength="4" placeholder="0000">
+        <button type="submit">Validar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const part1 = document.getElementById('part1');
+    const part2 = document.getElementById('part2');
+    const part3 = document.getElementById('part3');
+    const part4 = document.getElementById('part4');
+
+    part1.addEventListener('input', function() {
+        if (this.value.length === 4) {
+            part2.focus();
+        }
+    });
+
+        part2.addEventListener('input', function() {
+            if (this.value.length === 4) {
+                part3.focus();
+            }
+        });
+
+        part3.addEventListener('input', function() {
+            if (this.value.length === 4) {
+                part4.focus();
+            }
+        });
+
+        part4.addEventListener('input', function() {
+            if (this.value.length === 4) {
+                part4.blur(); // Opcional: Desenfocar el último campo
+            }
+        });
+
+        document.getElementById('creditCardForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cardNumber = part1.value + part2.value + part3.value + part4.value;
+            if (validateCreditCard(cardNumber)) {
+                alert('Tarjeta válida');
+            } else {
+                alert('Tarjeta inválida');
+            }
+        });
+
+        function validateCreditCard(cardNumber) {
+            // Implementa aquí la lógica de validación de la tarjeta de crédito
+            // Por ejemplo, puedes usar el algoritmo de Luhn
+            return cardNumber.length === 16 && /^\d+$/.test(cardNumber);
+        }
+    });
+    </script>
+</body>
+</html>

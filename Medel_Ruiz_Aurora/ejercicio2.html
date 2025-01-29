@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h1>Ejercicio 2</h1>
+        <label>Texto 1</label>
+        <input type="text" id="txt1"><br><br>
+
+        <label>Texto 2</label>
+        <input type="text" id="txt2" readonly><br><br>
+
+        <!-- <button id="btn">COPIAR</button> -->
+
+        <script>
+            let texto = document.getElementById("txt1");
+            let otro = document.getElementById("txt2");
+            let btn = document.getElementById("btn");
+
+            //  btn.addEventListener('click', function() {
+            //      otro.value = texto.value;
+            //  });
+
+            texto.addEventListener('keyup', function(){
+                otro.value = texto.value;
+            });
+        </script>
+</body>
+</html>
