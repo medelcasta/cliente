@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario" action="" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre">
+        <p id="error-nombre" style="color:red;"></p>
+        <br>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad">
+        <p id="error-edad" style="color:red;"></p>
+        <br>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        let miformulario = document.getElementById('formulario');
+        miformulario.addEventListener('submit', function(e){
+            let valid = true;
+
+            let nombre = document.getElementById('nombre').value;
+            let error_nombre = document.getElementById('error-nombre');
+
+            let edad = document.getElementById('edad').value;
+            let error_edad = document.getElementById('error-edad');
+
+            if(nombre == ''){
+                error_nombre.innerText = 'El nombre es obligatorio';
+                valid = false;
+            }else{
+                error_nombre.innerText = '';
+                if(nombre.length < 3){
+                    error_nombre.innerText = 'El nombre debe tener al menos 3 caracteres';
+                    valid = false;
+                }
+            }
+
+            if(edad == ''){
+                error_edad.innerText = 'La edad es obligatoria';
+                valid = false;
+            }else{
+                error_edad.innerText = '';
+                if(edad < 18){
+                    error_edad.innerText = 'La edad debe ser mayor a 18 años';
+                    valid = false;
+                }
+            }
+
+            if(!valid){
+                e.preventDefault();
+            }else{
+                alert('Formulario enviado');
+            }
+        });
+    </script>
+</body>
+</html>

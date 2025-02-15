@@ -23,7 +23,6 @@
         const select = document.getElementById("activar");
         const submitBtn = document.getElementById("submitBtn");
 
-
         select.addEventListener("change", function () {
           if (select.value === "sí") {
             submitBtn.style.display = "inline-block";
@@ -31,12 +30,6 @@
             submitBtn.style.display = "none"; 
           }
         });
-
-        if (select.value === "sí") {
-          submitBtn.style.display = "inline-block";
-        } else {
-          submitBtn.style.display = "none";
-        }
       });
     </script>
   </body>
