@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" id="fecha" name="fecha">
+    <script>
+        // Función principal de validación
+function validateDate(dateString) {
+    const validation = {
+        isValid: true,
+        errors: []
+    };
+
+    // Validar que no esté vacío
+    if (!dateString) {
+        validation.isValid = false;
+        validation.errors.push('La fecha es requerida');
+        return validation;
+    }
+
+    // Crear objeto Date
+    const date = new Date(dateString);
+
+    // Validar que sea una fecha válida
+    if (isNaN(date.getTime())) {
+        validation.isValid = false;
+        validation.errors.push('Fecha inválida');
+        return validation;
+    }
+
+    // Obtener fecha actual
+    const today = new Date();
+    
+    // Validar que la fecha no sea futura (si es necesario)
+    if (date > today) {
+        validation.isValid = false;
+        validation.errors.push('La fecha no puede ser futura');
+    }
+
+    // Validar que la fecha no sea muy antigua (ejemplo: más de 120 años)
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 120);
+    if (date < minDate) {
+        validation.isValid = false;
+        validation.errors.push('La fecha es demasiado antigua');
+    }
+
+    // Validar formato específico (YYYY-MM-DD)
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!dateRegex.test(dateString)) {
+        validation.isValid = false;
+        validation.errors.push('El formato debe ser YYYY-MM-DD');
+    }
+
+    return validation;
+}
+
+// Función auxiliar para formatear fecha
+function formatDate(date) {
+    const d = new Date(date);
+    const month = (d.getMonth() + 1).toString().padStart(2, '0');
+    const day = d.getDate().toString().padStart(2, '0');
+    const year = d.getFullYear();
+    return `${year}-${month}-${day}`;
+}
+
+// Implementación con un campo de formulario
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('fecha');
+    const errorDiv = document.getElementById('error-fecha');
+    
+    // Establecer fecha máxima (hoy)
+    const today = new Date();
+    dateInput.max = formatDate(today);
+    
+    // Establecer fecha mínima (120 años atrás)
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 120);
+    dateInput.min = formatDate(minDate);
+
+    dateInput.addEventListener('input', function() {
+        const result = validateDate(this.value);
+        
+        if (!result.isValid) {
+            errorDiv.textContent = result.errors.join('. ');
+            errorDiv.style.color = 'red';
+            dateInput.classList.add('invalid');
+        } else {
+            errorDiv.textContent = '';
+            dateInput.classList.remove('invalid');
+        }
+    });
+
+    // Validar al perder el foco
+    dateInput.addEventListener('blur', function() {
+        if (this.value) {
+            const result = validateDate(this.value);
+            if (!result.isValid) {
+                this.value = ''; // Limpiar si es inválida
+                errorDiv.textContent = 'Por favor, ingrese una fecha válida';
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>

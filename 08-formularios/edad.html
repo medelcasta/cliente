@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="edad" name="edad" min="0" max="120">
+    <script>
+        // Función principal de validación
+        function validateAge(age) {
+            // Objeto para almacenar resultados de validación
+            const validation = {
+                isValid: true,
+                errors: []
+            };
+
+            // Remover espacios
+            age = age.trim();
+
+            // Validar que no esté vacío
+            if (age.length === 0) {
+                validation.isValid = false;
+                validation.errors.push('La edad es requerida');
+                return validation;
+            }
+
+            // Convertir a número
+            const numericAge = Number(age);
+
+            // Validar que sea un número
+            if (isNaN(numericAge)) {
+                validation.isValid = false;
+                validation.errors.push('La edad debe ser un número');
+                return validation;
+            }
+
+            // Validar que sea un número entero
+            if (!Number.isInteger(numericAge)) {
+                validation.isValid = false;
+                validation.errors.push('La edad debe ser un número entero');
+            }
+
+            // Validar que sea positivo
+            if (numericAge < 0) {
+                validation.isValid = false;
+                validation.errors.push('La edad no puede ser negativa');
+            }
+
+            // Validar rango razonable (0-120 años)
+            if (numericAge > 120) {
+                validation.isValid = false;
+                validation.errors.push('La edad debe ser menor a 120 años');
+            }
+
+            return validation;
+        }
+
+        // Ejemplo de implementación con un campo de formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            const ageInput = document.getElementById('edad');
+            const errorDiv = document.getElementById('error-edad');
+            
+            ageInput.addEventListener('input', function() {
+                const result = validateAge(this.value);
+                
+                if (!result.isValid) {
+                    errorDiv.textContent = result.errors.join('. ');
+                    errorDiv.style.color = 'red';
+                    ageInput.classList.add('invalid');
+                } else {
+                    errorDiv.textContent = '';
+                    ageInput.classList.remove('invalid');
+                }
+            });
+
+            // Prevenir entrada de caracteres no numéricos
+            ageInput.addEventListener('keypress', function(e) {
+                if (!/[\d]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
