@@ -1,0 +1,20 @@
+{
+    "producto": {
+        "nombre": "Camiseta",
+        "precio": 19.99,
+        "disponible": true,
+        "detalles": {
+            "color": "Rojo",
+            "talla": "M"
+        }
+    },
+    "producto2": {
+        "nombre": "Pantalon",
+        "precio": 29.99,
+        "disponible": false,
+        "detalles": {
+            "color": "Azul",
+            "talla": "L"
+        }
+    }
+}
